@@ -1,7 +1,6 @@
-import os
-
-from flask import Flask, render_template
-app = Flask(__name__)
+from . import index
+app.register_blueprint(index.bp)
+app.add_url_rule('/', endpoint='index')
 
 
 @app.route('/')
