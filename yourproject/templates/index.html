@@ -9,5 +9,10 @@
     <p>This is a text based adventure game. Press the "Start" button to
     start your adventure!</p>
   </section>
-  <button type="button" name="button">Start</button>
+  <form method="post">
+  <label for="player_name">Enter your name</label>
+  <input type="text" name="player_name" id="player_name"/> 
+
+  <input type="submit" value="Submit"/>
+</form>
 {% endblock %}
