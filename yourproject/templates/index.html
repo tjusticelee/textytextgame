@@ -1,18 +1,15 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}Textytext Game{% endblock %}</h1>
+  <h1>{% block title %}Wack.{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
   <section>
-    <p>This is a text based adventure game. Press the "Start" button to
-    start your adventure!</p>
+    <p>This is a text based adventure game. Have fun.</p>
+    <p>how to play:</p>
+    <p>Enter number that correlates to action</p>
   </section>
-  <form method="post">
-  <label for="player_name">Enter your name</label>
-  <input type="text" name="player_name" id="player_name"/> 
 
-  <input type="submit" value="Submit"/>
-</form>
+    <a href="{{ url_for('scenes.home') }}" class='play-button'>Play</a>
 {% endblock %}
