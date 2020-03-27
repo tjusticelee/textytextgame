@@ -8,13 +8,13 @@ bp = Blueprint('scenes', __name__)
 
 @bp.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('scenes/index.html')
 
 @bp.route('/home', methods=('GET', 'POST'))
 def home():
 
-    scene = {
-    """Your alarm wakes you up. You lay in bed and decide
+    sceneboi = {
+    'scenario':  """Your alarm wakes you up. You lay in bed and decide
     whether or not to skip class. \n
     1. Stay in and sleep
     \n
@@ -30,19 +30,26 @@ def home():
         if choice == "2":
             return redirect(url_for('scenes.walk'))
 
-@bp.route('/bus', methods('GET', 'POST'))
+    return render_template('scenes/play.html', scene=sceneboi)
+
+@bp.route('/bus', methods=('GET', 'POST'))
 def bus():
 
-    scene = {
-    """You lay in bed and close your eyes. Your mom comes through
+    sceneboi = {
+    'scenario': """You lay in bed and close your eyes. Your mom comes through
     your air vent and yells at you to get up you yell at her
     \"You don't understand me mom!\" She dropkicks you
-    into the bus from your room. \n
-    \n
+    into the bus from your room.
+
     You land in the driver's seat of the bus and realize you have to drive
     the bus. do you?
-    \n
+
     1. Drift dat boi
-    \n
+    
     2. Drive like a civilized person"""
     }
+
+    if request.method == 'POST':
+        choice = request.form['action']
+
+    return render_template('scenes/play.html', scene=sceneboi)

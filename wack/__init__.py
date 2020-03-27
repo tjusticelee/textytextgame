@@ -1,8 +1,8 @@
 import os
 
-from flask import (
-    Blueprint, flash, g, redirect, render_template, request, url_for
-)
+# from flask import (
+#     Blueprint, flash, g, redirect, render_template, request, url_for
+# )
 
 from flask import Flask
 
@@ -23,8 +23,8 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/')
-    def index():
-        return render_template('index.html')
+    from . import scenes
+    app.register_blueprint(scenes.bp)
+    app.add_url_rule('/', endpoint='index')
 
     return app

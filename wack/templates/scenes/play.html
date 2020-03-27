@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p class='scenario'>{{ scene['scenario'] }}</p>
+
+<form method="post">
+  <label for="action">What do you do?</label>
+  <input type="text" name="action" id="action" />
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}
